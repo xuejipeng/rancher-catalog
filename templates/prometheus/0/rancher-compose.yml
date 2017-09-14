@@ -1,5 +1,5 @@
 .catalog:
-  name: "prometheus"
+  name: "prometheus-st"
   version: "1"
   description: "Logging-Monitoring-Alerting"
   questions:
