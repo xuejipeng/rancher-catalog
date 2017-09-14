@@ -1,6 +1,6 @@
 .catalog:
-  name: "monitoring"
-  version: "0.1"
+  name: "prometheus"
+  version: "1"
   description: "Logging-Monitoring-Alerting"
   questions:
     - variable: "elasticsearch_link"
