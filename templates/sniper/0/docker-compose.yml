@@ -44,28 +44,6 @@ prometheus:
     extra_hosts:
     - "rancher-server:${RANCHER_SERVER}"
 
-graf-db:
-    tty: true
-    image: infinityworks/graf-db:11
-    command: cat
-    volumes:
-      - grafana-data:/var/lib/grafana/
-    volume_driver: ${VOLUME_DRIVER}
-    net: none
-
-grafana:
-    tty: true
-    image: grafana/grafana:5.0.0
-    ports:
-      - 3000:3000
-    labels:
-      io.rancher.sidekicks: graf-db
-    volumes_from:
-       - graf-db
-    links:
-      - prometheus:prometheus
-      - prometheus-rancher-exporter:prometheus-rancher-exporter
-
 prometheus-rancher-exporter:
     tty: true
     labels:

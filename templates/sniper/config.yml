@@ -1,6 +1,8 @@
-name: Prometheus
-description: |
-  Prometheus and friends, auto-discovering monitoring solution for Rancher deployments.
-version: 4.0.0
+name: Sniper
+description: >
+   Sniper Stack for SenseTime Container Platform.
+version: 1.0.0
 category: Monitoring
+maintainer: Areslan <areslan@sensetime.com>
+projectURL: https://github.com/areslan1122/rancher-catalog
 
