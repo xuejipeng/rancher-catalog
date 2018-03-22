@@ -35,6 +35,7 @@ prom-conf:
     net: none
     environment:
       - RANCHER_ENV=${RANCHER_ENV}
+      - PATH=${PATH}
 
 prometheus:
     tty: true
