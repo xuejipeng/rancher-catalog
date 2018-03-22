@@ -22,6 +22,12 @@
       - rancher-nfs
       - rancher-efs
       - rancher-ebs
+  - variable: "RANCHER_ENV"
+    label: "Rancher env"
+    description: "Rancher environment name"
+    default: "manager"
+    required: false
+    type: "string"
 
 prometheus:
   scale: 1

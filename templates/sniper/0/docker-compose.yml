@@ -3,12 +3,14 @@ cadvisor:
     io.rancher.scheduler.global: 'true'
   tty: true
   image: google/cadvisor:latest
+  command: --port=8484
   stdin_open: true
   volumes:
     - "/:/rootfs:ro"
     - "/var/run:/var/run:rw"
     - "/sys:/sys:ro"
     - "/var/lib/docker/:/var/lib/docker:ro"
+  net: host
 
 node-exporter:
   labels:
@@ -16,13 +18,16 @@ node-exporter:
   tty: true
   image: prom/node-exporter:latest
   stdin_open: true
+  net: host
 
 prom-conf:
     tty: true
-    image: infinityworks/prom-conf:20
+    image: registry.sensetime.com/sre/prom-conf:v1.0.0
     volumes:
       - /etc/prom-conf/
     net: none
+    environment:
+      - RANCHER_ENV=${rancher_env}
 
 prometheus:
     tty: true
