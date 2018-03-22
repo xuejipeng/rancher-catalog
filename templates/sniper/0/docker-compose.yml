@@ -29,7 +29,7 @@ script-exporter:
 
 prom-conf:
     tty: true
-    image: registry.sensetime.com/sre/prom-conf:v1.0.0
+    image: registry.sensetime.com/sre/prom-conf:v2.0.0
     volumes:
       - /etc/prom-conf/
     net: none
