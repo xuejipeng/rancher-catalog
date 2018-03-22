@@ -20,6 +20,13 @@ node-exporter:
   stdin_open: true
   net: host
 
+script-exporter:
+  labels:
+    io.rancher.scheduler.global: 'true'
+  tty: true
+  image: registry.sensetime.com/sre/script-exporter:0b25031
+  stdin_open: true
+
 prom-conf:
     tty: true
     image: registry.sensetime.com/sre/prom-conf:v1.0.0
