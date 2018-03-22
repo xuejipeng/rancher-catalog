@@ -37,8 +37,8 @@
     options:
       - https://prometheus-hz.sensetime.com
       - https://chaos.sensetime.com
-  - variable: "PATH"
-    label: "path"
+  - variable: "BASIC_PATH"
+    label: "basic path"
     description: "prometheus basic path"
     default: "manager"
     required: false
