@@ -27,12 +27,12 @@ prom-conf:
       - /etc/prom-conf/
     net: none
     environment:
-      - RANCHER_ENV=${rancher_env}
+      - RANCHER_ENV=${RANCHER_ENV}
 
 prometheus:
     tty: true
     image: prom/prometheus:v2.1.0
-    command: --config.file=/etc/prom-conf/prometheus.yml --storage.tsdb.path=/prometheus --web.console.libraries=/etc/prometheus/console_libraries --web.console.templates=/etc/prometheus/consoles
+    command: --config.file=/etc/prom-conf/prometheus.yml --storage.tsdb.path=/prometheus --web.console.libraries=/etc/prometheus/console_libraries --web.console.templates=/etc/prometheus/consoles --web.route-prefix=${PATH} --web.external-url=${URL}${PATH}
     ports:
       - 9090:9090
     labels:

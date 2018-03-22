@@ -28,6 +28,21 @@
     default: "manager"
     required: false
     type: "string"
+  - variable: "URL"
+    description: "Prometheus url"
+    label: "url"
+    required: true
+    default: "https://prometheus-hz.sensetime.com"
+    type: enum
+    options:
+      - https://prometheus-hz.sensetime.com
+      - https://chaos.sensetime.com
+  - variable: "PATH"
+    label: "path"
+    description: "prometheus basic path"
+    default: "manager"
+    required: false
+    type: "string"
 
 prometheus:
   scale: 1
