@@ -52,6 +52,12 @@
     options:
       - "false"
       - "true"
+  - variable: "ES_NODE_COUNT"
+    label: "es node count"
+    description: "elasticsearch node total count"
+    default: 0
+    required: false
+    type: "int"
 
 prometheus:
   scale: 1

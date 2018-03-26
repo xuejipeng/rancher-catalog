@@ -44,6 +44,7 @@ prom-conf:
       - RANCHER_ENV=${RANCHER_ENV}
       - BASIC_PATH=${BASIC_PATH}
       - ES_EXIST=${ES_EXIST}
+      - ES_NODE_COUNT=${ES_NODE_COUNT}
 
 prometheus:
     tty: true
