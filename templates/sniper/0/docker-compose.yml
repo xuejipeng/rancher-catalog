@@ -27,6 +27,15 @@ script-exporter:
   image: registry.sensetime.com/sre/script-exporter:0b25031
   stdin_open: true
 
+es-exporter:
+  tty: true
+  image: justwatch/elasticsearch_exporter:1.0.1
+  stdin_open: true
+  command: -es.uri=http://elasticsearch:9200
+  links:
+    - ${ELASTICSEARCH}:elasticsearch
+
+
 prom-conf:
     tty: true
     image: registry.sensetime.com/sre/prom-conf:v2.0.1

@@ -43,6 +43,11 @@
     default: "manager"
     required: false
     type: "string"
+  - variable: "ELASTICSEARCH"
+    description: "Link to elasticsearch service or stack/service"
+    label: "Elasticsearch source"
+    type: "service"
+    required: true
 
 prometheus:
   scale: 1
