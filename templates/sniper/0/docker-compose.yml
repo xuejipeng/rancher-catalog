@@ -36,7 +36,7 @@ es-exporter:
 
 prom-conf:
     tty: true
-    image: registry.sensetime.com/sre/prom-conf:v2.0.1
+    image: registry.sensetime.com/sre/prom-conf:v2.1
     volumes:
       - /etc/prom-conf/
     net: none
