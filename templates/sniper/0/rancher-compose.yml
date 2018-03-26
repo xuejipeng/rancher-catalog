@@ -48,6 +48,7 @@
     label: "Elasticsearch source"
     type: "service"
     required: true
+    default: "External-services/elasticsearch"
 
 prometheus:
   scale: 1
