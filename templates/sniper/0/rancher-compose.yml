@@ -43,12 +43,15 @@
     default: "manager"
     required: false
     type: "string"
-  - variable: "ELASTICSEARCH"
-    description: "Link to elasticsearch service or stack/service"
-    label: "Elasticsearch source"
-    type: "service"
+  - variable: "ES_EXIST"
+    description: "es-exporter"
+    label: "es-exporter"
     required: true
-    default: "External-services/elasticsearch"
+    default: "false"
+    type: enum
+    options:
+      - "false"
+      - "true"
 
 prometheus:
   scale: 1

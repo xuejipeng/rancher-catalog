@@ -32,8 +32,6 @@ es-exporter:
   image: justwatch/elasticsearch_exporter:1.0.1
   stdin_open: true
   command: -es.uri=http://elasticsearch:9200
-  links:
-    - ${ELASTICSEARCH}:elasticsearch
 
 
 prom-conf:
@@ -45,6 +43,7 @@ prom-conf:
     environment:
       - RANCHER_ENV=${RANCHER_ENV}
       - BASIC_PATH=${BASIC_PATH}
+      - ES_EXIST=${ES_EXIST}
 
 prometheus:
     tty: true
