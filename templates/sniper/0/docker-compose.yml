@@ -20,12 +20,12 @@ node-exporter:
   stdin_open: true
   net: host
 
-script-exporter:
-  labels:
-    io.rancher.scheduler.global: 'true'
-  tty: true
-  image: registry.sensetime.com/sre/script-exporter:0b25031
-  stdin_open: true
+#script-exporter:
+#  labels:
+#    io.rancher.scheduler.global: 'true'
+#  tty: true
+#  image: registry.sensetime.com/sre/script-exporter:0b25031
+#  stdin_open: true
 
 es-exporter:
   tty: true
