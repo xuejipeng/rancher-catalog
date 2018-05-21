@@ -62,7 +62,7 @@
   - variable: "ES_SOURCE"
     label: "es source"
     description: "elasticsearch source"
-    default: 0
+    default: none
     required: false
     type: "service"
 
