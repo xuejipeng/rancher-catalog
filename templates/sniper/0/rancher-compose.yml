@@ -59,6 +59,13 @@
     required: false
     type: "int"
 
+  - variable: "ES_SOURCE"
+    label: "es source"
+    description: "elasticsearch source"
+    default: 0
+    required: false
+    type: "service"
+
 prometheus:
   scale: 1
   health_check:
