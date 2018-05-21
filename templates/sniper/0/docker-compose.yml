@@ -32,7 +32,7 @@ es-exporter:
   image: justwatch/elasticsearch_exporter:1.0.1
   stdin_open: true
   command: -es.uri=http://elasticsearch:9200
-  links:
+  external_links:
   - ${ES_SOURCE}:elasticsearch
 
 
