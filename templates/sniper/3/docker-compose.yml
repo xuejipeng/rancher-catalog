@@ -64,9 +64,14 @@ mongodb-exporter:
   environment:
   - MONGODB_URL=mongodb://${MONGODB_USER}:${MONGODB_PASS}@master:3717,slave:3717
 
+blackbox-exporter:
+  tty: true
+  image: registry.sensetime.com/sre/blackbox-exporter
+  stdin_open: true
+
 prom-conf:
     tty: true
-    image: registry.sensetime.com/sre/prom-conf:v2.1.1
+    image: registry.sensetime.com/sre/prom-conf:db-url
     volumes:
       - /etc/prom-conf/
     net: none
