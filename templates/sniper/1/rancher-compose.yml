@@ -90,6 +90,37 @@
     required: false
     type: "string"
 
+  - variable: "MYSQL_EXIST"
+    description: "mysql exist"
+    label: "mysql-exporter"
+    required: true
+    default: "false"
+    type: enum
+    options:
+      - "false"
+      - "true"
+
+  - variable: "MYSQL_SOURCE"
+    label: "mysql source"
+    description: "mysql source"
+    default: none
+    required: false
+    type: "service"
+
+  - variable: "MYSQL_USER"
+    label: "mysql_user"
+    description: "mysql user"
+    default: ""
+    required: false
+    type: "string"
+
+  - variable: "MYSQL_PASS"
+    label: "mysql_password"
+    description: "mysql user password"
+    default: ""
+    required: false
+    type: "string"
+
 prometheus:
   scale: 1
   health_check:

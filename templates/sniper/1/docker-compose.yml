@@ -44,6 +44,17 @@ redis-exporter:
   environment:
   - REDIS_ADDR=redis://:${REDIS_PASS}@redis.rancher.internal
 
+
+mysql-exporter:
+  tty: true
+  image: prom/mysqld-exporter
+  stdin_open: true
+  external_links:
+  - ${MYSQL_SOURCE}:mysql
+  environment:
+  - DATA_SOURCE_NAME=${MYSQL_USER}:${MYSQL_PASS}@(mysql:3306)/
+
+
 prom-conf:
     tty: true
     image: registry.sensetime.com/sre/prom-conf:2.1.1
@@ -56,6 +67,7 @@ prom-conf:
       - ES_EXIST=${ES_EXIST}
       - ES_NODE_COUNT=${ES_NODE_COUNT}
       - REDIS_EXIST=${REDIS_EXIST}
+      - MYSQL_EXIST=${MYSQL_EXIST}
 
 prometheus:
     tty: true
