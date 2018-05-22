@@ -35,6 +35,10 @@ es-exporter:
   external_links:
   - ${ES_SOURCE}:elasticsearch
 
+blackbox-exporter:
+  tty: true
+  image: registry.sensetime.com/sre/blackbox-exporter
+                            
 
 prom-conf:
     tty: true
