@@ -38,6 +38,7 @@ es-exporter:
 blackbox-exporter:
   tty: true
   image: registry.sensetime.com/sre/blackbox-exporter
+  stdin_open: true
                             
 
 prom-conf:
