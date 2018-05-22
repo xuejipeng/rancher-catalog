@@ -1,6 +1,6 @@
 .catalog:
   name: "Sniper"
-  version: "2.1(es,db)"
+  version: "2.1(es,db,url)"
   description: "Prometheus Monitoring Solution"
   uuid: prometheus-2
   minimum_rancher_version: v1.5.5
