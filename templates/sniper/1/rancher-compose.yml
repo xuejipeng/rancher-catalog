@@ -121,6 +121,47 @@
     required: false
     type: "string"
 
+
+  - variable: "MONGODB_EXIST"
+    description: "mongodb exist"
+    label: "mongodb-exporter"
+    required: true
+    default: "false"
+    type: enum
+    options:
+      - "false"
+      - "true"
+
+  - variable: "MONGODB_MASTER_SOURCE"
+    label: "mongodb-master"
+    description: "mongodb master source"
+    default: none
+    required: false
+    type: "service"
+
+  - variable: "MONGODB_SLAVE_SOURCE"
+    label: "mongodb-slave"
+    description: "mongodb slave source"
+    default: none
+    required: false
+    type: "service"
+
+  - variable: "MONGODB_USER"
+    label: "mongodb_user"
+    description: "mongodb user"
+    default: ""
+    required: false
+    type: "string"
+
+  - variable: "MONGODB_PASS"
+    label: "mongodb_password"
+    description: "mongodb user password"
+    default: ""
+    required: false
+    type: "string"
+
+
+
 prometheus:
   scale: 1
   health_check:
