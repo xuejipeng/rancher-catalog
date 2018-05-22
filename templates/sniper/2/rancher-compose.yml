@@ -1,6 +1,6 @@
 .catalog:
   name: "Sniper"
-  version: "2.1(es,url)"
+  version: "2.1(es,db)"
   description: "Prometheus Monitoring Solution"
   uuid: prometheus-2
   minimum_rancher_version: v1.5.5
@@ -65,6 +65,102 @@
     default: none
     required: false
     type: "service"
+
+  - variable: "REDIS_SOURCE"
+    label: "redis source"
+    description: "redis source"
+    default: none
+    required: false
+    type: "service"
+
+  - variable: "REDIS_EXIST"
+    description: "redis exist"
+    label: "redis-exporter"
+    required: true
+    default: "false"
+    type: enum
+    options:
+      - "false"
+      - "true"
+
+  - variable: "REDIS_PASS"
+    label: "redis password"
+    description: "redis password"
+    default: ""
+    required: false
+    type: "string"
+
+  - variable: "MYSQL_EXIST"
+    description: "mysql exist"
+    label: "mysql-exporter"
+    required: true
+    default: "false"
+    type: enum
+    options:
+      - "false"
+      - "true"
+
+  - variable: "MYSQL_SOURCE"
+    label: "mysql source"
+    description: "mysql source"
+    default: none
+    required: false
+    type: "service"
+
+  - variable: "MYSQL_USER"
+    label: "mysql_user"
+    description: "mysql user"
+    default: ""
+    required: false
+    type: "string"
+
+  - variable: "MYSQL_PASS"
+    label: "mysql_password"
+    description: "mysql user password"
+    default: ""
+    required: false
+    type: "string"
+
+
+  - variable: "MONGODB_EXIST"
+    description: "mongodb exist"
+    label: "mongodb-exporter"
+    required: true
+    default: "false"
+    type: enum
+    options:
+      - "false"
+      - "true"
+
+  - variable: "MONGODB_MASTER_SOURCE"
+    label: "mongodb-master"
+    description: "mongodb master source"
+    default: none
+    required: false
+    type: "service"
+
+  - variable: "MONGODB_SLAVE_SOURCE"
+    label: "mongodb-slave"
+    description: "mongodb slave source"
+    default: none
+    required: false
+    type: "service"
+
+  - variable: "MONGODB_USER"
+    label: "mongodb_user"
+    description: "mongodb user"
+    default: ""
+    required: false
+    type: "string"
+
+  - variable: "MONGODB_PASS"
+    label: "mongodb_password"
+    description: "mongodb user password"
+    default: ""
+    required: false
+    type: "string"
+
+
 
 prometheus:
   scale: 1

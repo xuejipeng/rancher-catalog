@@ -35,6 +35,34 @@ es-exporter:
   external_links:
   - ${ES_SOURCE}:elasticsearch
 
+redis-exporter:
+  tty: true
+  image: oliver006/redis_exporter
+  stdin_open: true
+  external_links:
+  - ${REDIS_SOURCE}:redis
+  environment:
+  - REDIS_ADDR=redis://:${REDIS_PASS}@redis.rancher.internal
+
+
+mysql-exporter:
+  tty: true
+  image: prom/mysqld-exporter
+  stdin_open: true
+  external_links:
+  - ${MYSQL_SOURCE}:mysql
+  environment:
+  - DATA_SOURCE_NAME=${MYSQL_USER}:${MYSQL_PASS}@(mysql:3306)/
+
+mongodb-exporter:
+  tty: true
+  image: crobox/mongodb-exporter
+  stdin_open: true
+  external_links:
+  - ${MONGODB_MASTER_SOURCE}:master
+  - ${MONGODB_SLAVE_SOURCE}:slave
+  environment:
+  - MONGODB_URL=mongodb://${MONGODB_USER}:${MONGODB_PASS}@master:3717,slave:3717
 
 prom-conf:
     tty: true
@@ -47,6 +75,9 @@ prom-conf:
       - BASIC_PATH=${BASIC_PATH}
       - ES_EXIST=${ES_EXIST}
       - ES_NODE_COUNT=${ES_NODE_COUNT}
+      - REDIS_EXIST=${REDIS_EXIST}
+      - MYSQL_EXIST=${MYSQL_EXIST}
+      - MONGODB_EXIST=${MONGODB_EXIST}
 
 prometheus:
     tty: true
