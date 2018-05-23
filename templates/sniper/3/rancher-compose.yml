@@ -44,8 +44,8 @@
     required: false
     type: "string"
   - variable: "ES_EXIST"
-    description: "es-exporter"
-    label: "es-exporter"
+    description: "for elasticsearch monitoring"
+    label: "es exist"
     required: true
     default: "false"
     type: enum
@@ -74,8 +74,8 @@
     type: "service"
 
   - variable: "REDIS_EXIST"
-    description: "redis exist"
-    label: "redis-exporter"
+    description: "for redis monitoring"
+    label: "redis exist"
     required: true
     default: "false"
     type: enum
@@ -91,8 +91,8 @@
     type: "string"
 
   - variable: "MYSQL_EXIST"
-    description: "mysql exist"
-    label: "mysql-exporter"
+    description: "for mysql monitoring"
+    label: "mysql exist"
     required: true
     default: "false"
     type: enum
@@ -123,8 +123,8 @@
 
 
   - variable: "MONGODB_EXIST"
-    description: "mongodb exist"
-    label: "mongodb-exporter"
+    description: "for mongodb monitoring"
+    label: "mongodb exist"
     required: true
     default: "false"
     type: enum

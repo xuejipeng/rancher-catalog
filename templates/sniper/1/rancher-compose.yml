@@ -44,8 +44,8 @@
     required: false
     type: "string"
   - variable: "ES_EXIST"
-    description: "es-exporter"
-    label: "es-exporter"
+    description: "for elasticsearch monitoring"
+    label: "es exist"
     required: true
     default: "false"
     type: enum
