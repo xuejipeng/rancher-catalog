@@ -47,6 +47,7 @@ prom-conf:
       - BASIC_PATH=${BASIC_PATH}
       - ES_EXIST=${ES_EXIST}
       - ES_NODE_COUNT=${ES_NODE_COUNT}
+      - PROMETHEUS_YAML=${PROMETHEUS_YAML}
 
 prometheus:
     tty: true
