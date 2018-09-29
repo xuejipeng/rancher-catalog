@@ -43,7 +43,7 @@ blackbox-exporter:
 
 prom-conf:
     tty: true
-    image: registry.sensetime.com/sre/prom-conf:url-port
+    image: registry.sensetime.com/sre/prom-conf:port
     volumes:
       - /etc/prom-conf/
     net: none
