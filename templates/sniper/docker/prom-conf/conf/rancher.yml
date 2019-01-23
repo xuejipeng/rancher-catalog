@@ -1,0 +1,10 @@
+groups:
+- name: rancher
+  rules:
+  - alert: rancher_host_agent_not_active
+    expr: (rancher_host_agent_state{state!="active"} == 1)
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      DESCRIPTION: 'agent {{$labels.name}}: state not active'

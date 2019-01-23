@@ -1,0 +1,46 @@
+groups:
+- name: container
+  rules:
+  - alert: container_memory_usage_high
+    expr: avg(container_memory_rss{name!=""}) BY (name, instance) > 4 * 1024 * 1024
+      * 1024 and avg(container_spec_memory_limit_bytes - container_memory_usage_bytes)
+      BY (name, instance) < 0
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      description: '{{ $labels.name }} is eating up a LOT of memory. Memory consumption
+        of {{ $labels.name }} is {{ humanize $value}}.'
+  - alert: container_network_errors
+    expr: avg(rate(container_network_receive_packets_dropped_total{name!~".*(node-exporter|ipsec|network-policy|network-services|rancher-agent).*",name=~".+"}[5m])
+      + rate(container_network_transmit_packets_dropped_total{name!~".*(node-exporter|ipsec|network-policy|network-services|rancher-agent).*",name=~".+"}[5m]))
+      BY (name, instance) > 10
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      description: '{{ $labels.name }} is having network errors. Network errors  of
+        {{ $labels.name }} is {{$value}}.'
+  - alert: container_disk_space_usage_high
+    expr: avg(container_fs_usage_bytes{name!=""}) BY (name, instance) > 4 * 1024 *
+      1024 * 1024
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      description: '{{ $labels.name }} is using a lot of disk space. Disk usage of
+        {{ $labels.name }} is {{humanize $value}}.'
+  - alert: container_network_connectivity_errors
+    expr: script_success != 1
+    for: 5m
+    labels:
+      severity: warning
+    annotations:
+      description: '{{ $labels.instance}} connect error'
+  - alert: container_restart
+    expr: (time() - (avg(container_start_time_seconds) BY (name))) < 240
+    for: 1m
+    labels:
+      severity: warning
+    annotations:
+      description: container {{$labels.name}} restart in last one minutes

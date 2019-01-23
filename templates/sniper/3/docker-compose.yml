@@ -71,7 +71,7 @@ blackbox-exporter:
 
 prom-conf:
     tty: true
-    image: registry.sensetime.com/sre/prom-conf:0.1
+    image: registry.sensetime.com/sre/prom-conf:db-port
     volumes:
       - /etc/prom-conf/
     net: none
@@ -83,16 +83,22 @@ prom-conf:
       - REDIS_EXIST=${REDIS_EXIST}
       - MYSQL_EXIST=${MYSQL_EXIST}
       - MONGODB_EXIST=${MONGODB_EXIST}
-      - APPYAML=${APPYAML}
+
+prom-app-conf:
+    tty: true
+    image: registry.sensetime.com/sre/prom-app-conf:0.1
+    volumes:
+      - /etc/prom-conf/
 
 prometheus:
     tty: true
     image: prom/prometheus:v2.2.0
     command: --config.file=/etc/prom-conf/prometheus.yml --storage.tsdb.path=/prometheus --web.console.libraries=/etc/prometheus/console_libraries --web.console.templates=/etc/prometheus/consoles --web.route-prefix=${BASIC_PATH} --web.external-url=${URL}${BASIC_PATH}
     labels:
-      io.rancher.sidekicks: prom-conf
+      io.rancher.sidekicks: prom-conf,prom-app.conf
     volumes_from:
       - prom-conf
+      - prom-app.conf
     volumes:
       - prometheus-data:/prometheus
     volume_driver: ${VOLUME_DRIVER}
