@@ -1,0 +1,17 @@
+groups:
+- name: blackbox
+  rules:
+  - alert: url_http_code_error
+    expr: probe_http_status_code != 200 != 400 != 401 != 403
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      description: '{{ $labels.instance}} http code error'
+  - alert: url_tcp_conection_error
+    expr: probe_success != 1
+    for: 2m
+    labels:
+      severity: critical
+    annotations:
+      description: '{{ $labels.instance}} tcp conection error'
