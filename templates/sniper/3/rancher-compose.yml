@@ -159,6 +159,12 @@
     default: ""
     required: false
     type: "string"
+  - variable: "APPYAML"
+    label: "prom_app_yaml"
+    description: "prometheus alert rules of app"
+    default: ""
+    required: false
+    type: "multiline"
 
 
 

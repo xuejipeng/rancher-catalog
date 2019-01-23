@@ -3,6 +3,6 @@ description: >
    Sniper Stack for SenseTime Container Platform.
 version: 1.0.0
 category: Monitoring
-maintainer: Areslan <areslan@sensetime.com>
-projectURL: https://github.com/areslan1122/rancher-catalog
+maintainer: Areslan <xuejipeng@sensetime.com>
+projectURL: https://github.com/xuejipeng/rancher-catalog
 

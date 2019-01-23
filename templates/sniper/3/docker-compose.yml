@@ -29,7 +29,7 @@ node-exporter:
 
 es-exporter:
   tty: true
-  image: justwatch/elasticsearch_exporter:1.0.1
+  image: justwatch/elasticsearch_exporter:1.0.2
   stdin_open: true
   command: -es.uri=http://elasticsearch:9200
   external_links:
@@ -37,7 +37,7 @@ es-exporter:
 
 redis-exporter:
   tty: true
-  image: oliver006/redis_exporter
+  image: oliver006/redis_exporter:v0.27.0
   stdin_open: true
   external_links:
   - ${REDIS_SOURCE}:redis
@@ -47,7 +47,7 @@ redis-exporter:
 
 mysql-exporter:
   tty: true
-  image: prom/mysqld-exporter
+  image: prom/mysqld-exporter:v0.11.0 
   stdin_open: true
   external_links:
   - ${MYSQL_SOURCE}:mysql
