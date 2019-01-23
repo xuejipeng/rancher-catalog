@@ -169,6 +169,11 @@
     required: false
     type: "multiline"
 
+prom-app-conf:
+  metadata:
+    app:
+      conf: |
+        ${app_yaml}
 
 
 prometheus:
