@@ -169,13 +169,6 @@
     required: false
     type: "multiline"
 
-prom-app-conf:
-  metadata:
-    app:
-      conf: |
-        ${app_yaml}
-
-
 prometheus:
   scale: 1
   health_check:
@@ -185,7 +178,10 @@ prometheus:
     request_line: ''
     healthy_threshold: 2
     response_timeout: 5000
-
+  metadata:
+    app:
+      conf: |
+        ${app_yaml}
 
 prometheus-rancher-exporter:
   scale: 1
