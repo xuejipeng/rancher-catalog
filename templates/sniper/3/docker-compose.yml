@@ -88,7 +88,7 @@ prom-app-conf:
     tty: true
     image: registry.sensetime.com/sre/prom-app-conf:0.1
     volumes:
-      - /etc/prom-conf/
+      - /etc/prom-app-conf
 
 prometheus:
     tty: true
