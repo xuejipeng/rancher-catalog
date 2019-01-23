@@ -83,12 +83,14 @@ prom-conf:
       - REDIS_EXIST=${REDIS_EXIST}
       - MYSQL_EXIST=${MYSQL_EXIST}
       - MONGODB_EXIST=${MONGODB_EXIST}
+    labels:
+      io.rancher.container.hostname_override: container_name
 
 prom-app-conf:
     tty: true
     image: registry.sensetime.com/sre/prom-app-conf:0.1
-    volumes:
-      - /etc/prom-app-conf
+    labels:
+      io.rancher.container.hostname_override: container_name
 
 prometheus:
     tty: true
