@@ -83,6 +83,7 @@ prom-conf:
       - REDIS_EXIST=${REDIS_EXIST}
       - MYSQL_EXIST=${MYSQL_EXIST}
       - MONGODB_EXIST=${MONGODB_EXIST}
+      - APPYAML=${APPYAML}
 
 prometheus:
     tty: true
