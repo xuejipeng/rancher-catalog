@@ -11,4 +11,4 @@ COPY init.sh rewrite.py /
 
 RUN pip install pyyaml
 
-CMD ["/bin/sh" "-c" "sh init.sh ; /bin/sh"]
+CMD ["/bin/sh", "-c", "./init.sh ; /bin/sh"]
