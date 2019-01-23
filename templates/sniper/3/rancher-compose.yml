@@ -160,10 +160,12 @@
     required: false
     type: "string"
 
-  - variable: "APPYAML"
-    label: "prom_app_yaml"
+  - variable: "app_yaml"
+    label: "prom app yaml"
     description: "prometheus alert rules of app"
-    default: "a"
+    default: |
+      a
+      b
     required: false
     type: "multiline"
 
