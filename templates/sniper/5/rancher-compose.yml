@@ -305,11 +305,11 @@ prometheus:
     prometheus:
       conf:
         app: |
-          $${app-yaml}
+          ${app-yaml}
         prometheus: |
-          $${prometheus-yaml}
+          ${prometheus-yaml}
         hosts: |
-          $${hosts-yaml}
+          ${hosts-yaml}
 
 prometheus-rancher-exporter:
   scale: 1
