@@ -103,7 +103,6 @@ prometheus:
     labels:
       io.rancher.sidekicks: prom-conf,prom-app-conf
     volumes_from:
-      - prom-app-conf
       - prom-conf
     volumes:
       - prometheus-data:/prometheus
