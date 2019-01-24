@@ -160,6 +160,16 @@
     required: false
     type: "string"
 
+  - variable: "CUSTOM_ALERTS"
+    description: "Whether to customize monitoring"
+    label: "custom_alerts"
+    required: false
+    default: "false"
+    type: enum
+    options:
+      - "false"
+      - "true"
+
   - variable: "app_yaml"
     label: "prom app alert yaml"
     description: "prometheus alert rules for app"

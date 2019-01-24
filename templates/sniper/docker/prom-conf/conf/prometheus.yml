@@ -10,7 +10,7 @@ alerting:
 global:
   evaluation_interval: 15s
   external_labels:
-    env: rancherenv
+    env: manager
   scrape_interval: 15s
 rule_files:
 - container.yml
