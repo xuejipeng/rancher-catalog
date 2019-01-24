@@ -290,8 +290,8 @@
           labels:
             severity: warning
           annotations:
-            description: Host avg load 5m is at {{ .value }}. Reported by instance {{ $labels.instance
-              }} of job {{ $labels.job }}.
+            description: "Host avg load 5m is at {{ $value }}. Reported by instance {{ $labels.instance
+              }} of job {{ $labels.job }}."
         - alert: node_cpu_iowait_high
           expr: avg(rate(node_cpu{mode="iowait"}[5m])) BY (instance) * 100 > 60
           for: 5m
