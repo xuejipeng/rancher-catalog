@@ -1,0 +1,6 @@
+[template]
+src = "host.yml.tmpl"
+dest = "/etc/prom-conf/host.yml"
+keys = [
+    "/self/service/metadata/prometheus/conf/hosts",
+]

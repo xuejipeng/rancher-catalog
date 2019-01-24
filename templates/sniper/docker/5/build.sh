@@ -1,1 +1,1 @@
-docker build -t  registry.sensetime.com/sre/prom-conf:define  .
+docker build -t  registry.sensetime.com/sre/prom-conf:defined  .
