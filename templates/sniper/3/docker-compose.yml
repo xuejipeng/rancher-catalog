@@ -88,6 +88,7 @@ prom-conf:
 
 prom-app-conf:
     tty: true
+    net: none
     image: registry.sensetime.com/sre/prom-app-conf:0.1
     labels:
       io.rancher.container.hostname_override: container_name
@@ -101,7 +102,6 @@ prometheus:
     volumes_from:
       - prom-app-conf
       - prom-conf
-
     volumes:
       - prometheus-data:/prometheus
     volume_driver: ${VOLUME_DRIVER}
