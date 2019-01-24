@@ -69,28 +69,30 @@ blackbox-exporter:
   image: registry.sensetime.com/sre/blackbox-exporter
   stdin_open: true
 
-# prom-conf:
-#     tty: true
-#     image: registry.sensetime.com/sre/prom-conf:db-port
-#     volumes:
-#       - /etc/prom-conf/
-#     net: none
-#     environment:
-#       - RANCHER_ENV=${RANCHER_ENV}
-#       - BASIC_PATH=${BASIC_PATH}
-#       - ES_EXIST=${ES_EXIST}
-#       - ES_NODE_COUNT=${ES_NODE_COUNT}
-#       - REDIS_EXIST=${REDIS_EXIST}
-#       - MYSQL_EXIST=${MYSQL_EXIST}
-#       - MONGODB_EXIST=${MONGODB_EXIST}
-#     labels:
-#       io.rancher.container.hostname_override: container_name
-
 prom-conf:
+    tty: true
+    image: registry.sensetime.com/sre/prom-conf:db-port
+    volumes:
+      - /etc/prom-conf/
+    net: none
+    environment:
+      - RANCHER_ENV=${RANCHER_ENV}
+      - BASIC_PATH=${BASIC_PATH}
+      - ES_EXIST=${ES_EXIST}
+      - ES_NODE_COUNT=${ES_NODE_COUNT}
+      - REDIS_EXIST=${REDIS_EXIST}
+      - MYSQL_EXIST=${MYSQL_EXIST}
+      - MONGODB_EXIST=${MONGODB_EXIST}
+    labels:
+      io.rancher.container.hostname_override: container_name
+
+prom-app-conf:
     restart: always
     volumes:
-       - /etc/prom-conf/
-    image: registry.sensetime.com/sre/prom-conf:defined
+       - /etc/prom-app-conf/
+    volumes_from:
+       - prom-conf
+    image: registry.sensetime.com/sre/prom-app-conf:0.1
     labels:
       io.rancher.container.hostname_override: container_name
 
@@ -99,8 +101,9 @@ prometheus:
     image: prom/prometheus:v2.2.0
     command: --config.file=/etc/prom-conf/prometheus.yml --storage.tsdb.path=/prometheus --web.console.libraries=/etc/prometheus/console_libraries --web.console.templates=/etc/prometheus/consoles --web.route-prefix=${BASIC_PATH} --web.external-url=${URL}${BASIC_PATH}
     labels:
-      io.rancher.sidekicks: prom-conf
+      io.rancher.sidekicks: prom-conf,prom-app-conf
     volumes_from:
+      - prom-app-conf
       - prom-conf
     volumes:
       - prometheus-data:/prometheus
