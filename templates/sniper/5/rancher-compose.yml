@@ -160,7 +160,7 @@
     required: false
     type: "string"
 
-  - variable: "prometheus-yaml"
+  - variable: "prometheus_yaml"
     label: "prom yaml"
     description: "prometheus config of prometheus"
     required: true
@@ -275,7 +275,7 @@
           target_label: __address__
 
 
-  - variable: "hosts-yaml"
+  - variable: "hosts_yaml"
     label: "prom hosts yaml"
     description: "prometheus alert rules of hosts"
     required: true
@@ -284,7 +284,7 @@
             groups:
             
 
-  - variable: "app-yaml"
+  - variable: "app_yaml"
     label: "prom app yaml"
     description: "prometheus alert rules of app"
     required: false
@@ -304,9 +304,9 @@ prometheus:
   metadata:
     prometheus:
       conf:
-        app: ${app-yaml}
-        prometheus: ${prometheus-yaml}
-        hosts: ${hosts-yaml}
+        app: ${app_yaml}
+        prometheus: ${prometheus_yaml}
+        hosts: ${hosts_yaml}
 
 prometheus-rancher-exporter:
   scale: 1
