@@ -83,6 +83,7 @@ prom-conf:
       - REDIS_EXIST=${REDIS_EXIST}
       - MYSQL_EXIST=${MYSQL_EXIST}
       - MONGODB_EXIST=${MONGODB_EXIST}
+      - CUSTOM_ALERTS=${CUSTOM_ALERTS}
     labels:
       io.rancher.container.hostname_override: container_name
 
