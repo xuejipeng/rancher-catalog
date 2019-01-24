@@ -305,8 +305,7 @@ prometheus:
     prometheus:
       conf:
         app: ${app_yaml}
-        prometheus: ${prometheus_yaml}
-        hosts: ${hosts_yaml}
+
 
 prometheus-rancher-exporter:
   scale: 1
