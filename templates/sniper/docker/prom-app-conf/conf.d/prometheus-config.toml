@@ -1,6 +1,22 @@
 [template]
 src = "app.yml.tmpl"
-dest = "/etc/prom-app-conf/app.yml"
+dest = "/etc/prom-conf/app.yml"
 keys = [
-    "/self/service/metadata/app/conf",
+    "/self/service/metadata/prometheus/conf/app",
 ]
+
+[template]
+src = "prometheus.yml.tmpl"
+dest = "/etc/prom-conf/prometheus.yml"
+keys = [
+    "/self/service/metadata/prometheus/conf/prometheus",
+]
+
+
+[template]
+src = "host.yml.tmpl"
+dest = "/etc/prom-conf/host.yml"
+keys = [
+    "/self/service/metadata/prometheus/conf/hosts",
+]
+

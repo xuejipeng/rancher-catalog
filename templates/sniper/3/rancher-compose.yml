@@ -178,10 +178,6 @@ prometheus:
     request_line: ''
     healthy_threshold: 2
     response_timeout: 5000
-  metadata:
-    app:
-      conf: |
-        ${app_yaml}
 
 prometheus-rancher-exporter:
   scale: 1
