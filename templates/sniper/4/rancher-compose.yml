@@ -279,7 +279,7 @@
     label: "prom host yaml"
     description: "prometheus alert rules of hosts"
     required: true
-    type: "string"
+    type: "multiline"
     default: |
       groups:
       - name: host
