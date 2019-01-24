@@ -2,5 +2,5 @@
 src = "app.yml.tmpl"
 dest = "/etc/prom-conf/app.yml"
 keys = [
-    "/self/service/metadata/prometheus/conf/app",
+    "/self/service/metadata/app",
 ]
