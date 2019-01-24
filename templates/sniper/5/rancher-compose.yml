@@ -275,8 +275,8 @@
           target_label: __address__
 
 
-  - variable: "host-yaml"
-    label: "prom host yaml"
+  - variable: "hosts-yaml"
+    label: "prom hosts yaml"
     description: "prometheus alert rules of hosts"
     required: true
     type: "multiline"
@@ -304,12 +304,9 @@ prometheus:
   metadata:
     prometheus:
       conf:
-        app: |
-          ${app-yaml}
-        prometheus: |
-          ${prometheus-yaml}
-        hosts: |
-          ${hosts-yaml}
+        app: ${app-yaml}
+        prometheus: ${prometheus-yaml}
+        hosts: ${hosts-yaml}
 
 prometheus-rancher-exporter:
   scale: 1
