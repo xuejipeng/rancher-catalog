@@ -290,16 +290,16 @@
           labels:
             severity: warning
           annotations:
-            description: Host avg load 5m is at {{ $value }}. Reported by instance {{ $labels.instance
-              }} of job {{ $labels.job }}.
+            description: Host avg load 5m is at {{ $$value }}. Reported by instance {{ $$labels.instance
+              }} of job {{ $$labels.job }}.
         - alert: node_cpu_iowait_high
           expr: avg(rate(node_cpu{mode="iowait"}[5m])) BY (instance) * 100 > 60
           for: 5m
           labels:
             severity: warning
           annotations:
-            description: Host avg iowait time in 5m is {{ $value }}. Reported by instance
-              {{ $labels.instance }} of job {{ $labels.job }}.
+            description: Host avg iowait time in 5m is {{ $$value }}. Reported by instance
+              {{ $$labels.instance }} of job {{ $$labels.job }}.
         - alert: node_memory_usage_high
           expr: (((node_memory_MemTotal - node_memory_MemFree - node_memory_Cached) / (node_memory_MemTotal))
             * 100) > 90 and (node_memory_MemFree + node_memory_Cached) < 2 * 1024 * 1024
@@ -308,8 +308,8 @@
           labels:
             severity: warning
           annotations:
-            description: Host avg memory usage in 5m is {{ $value }}%. Reported by instance
-              {{ $labels.instance }} of job {{ $labels.job }}.
+            description: Host avg memory usage in 5m is {{ $$value }}%. Reported by instance
+              {{ $$labels.instance }} of job {{ $$labels.job }}.
         - alert: node_network_traffic_high
           expr: rate(node_network_receive_bytes{device!~"docker0|veth.+"}[5m]) + rate(node_network_transmit_bytes{device!~"docker0|veth.+"}[5m])
             > 60 * 1024 * 1024
@@ -317,8 +317,8 @@
           labels:
             severity: warning
           annotations:
-            description: Host avg network traffic in 5m is {{ $value }}. Reported by instance
-              {{ $labels.instance }} of job {{ $labels.job }}.
+            description: Host avg network traffic in 5m is {{ $$value }}. Reported by instance
+              {{ $$labels.instance }} of job {{ $$labels.job }}.
         - alert: node_network_errors
           expr: rate(node_network_receive_errs{device!~"(docker.+|veth.+|lo)"}[5m]) + rate(node_network_transmit_errs[5m])
             > 10
@@ -326,8 +326,8 @@
           labels:
             severity: warning
           annotations:
-            description: Host avg network packet errors in 5m is {{ $value }}. Reported
-              by instance {{ $labels.instance }} of job {{ $labels.job }}.
+            description: Host avg network packet errors in 5m is {{ $$value }}. Reported
+              by instance {{ $$labels.instance }} of job {{ $$labels.job }}.
         - alert: node_disk_throughput_high
           expr: rate(node_disk_bytes_read[5m]) + rate(node_disk_bytes_written[5m]) > 100
             * 1024 * 1024
@@ -335,8 +335,8 @@
           labels:
             severity: warning
           annotations:
-            description: Host avg disk throughput in 5m is {{ $value }}. Reported by instance
-              {{ $labels.instance }} of job {{ $labels.job }}.
+            description: Host avg disk throughput in 5m is {{ $$value }}. Reported by instance
+              {{ $$labels.instance }} of job {{ $$labels.job }}.
         - alert: node_disk_space_running_out
           expr: (node_filesystem_avail / node_filesystem_size{fstype="aufs",mountpoint="/"}
             * 100) < 15
@@ -345,7 +345,7 @@
             severity: warning
           annotations:
             description: Host avg disk space will be full in 2 days. Reported by instance
-              {{ $labels.instance }} of job {{ $labels.job }}.
+              {{ $$labels.instance }} of job {{ $$labels.job }}.
 
 
   - variable: "app-yaml"
@@ -369,11 +369,11 @@ prometheus:
     prometheus:
       conf:
         app: |
-          ${app-yaml}
+          $${app-yaml}
         prometheus: |
-          ${prometheus-yaml}
+          $${prometheus-yaml}
         hosts: |
-          ${hosts-yaml}
+          $${hosts-yaml}
 
 prometheus-rancher-exporter:
   scale: 1
