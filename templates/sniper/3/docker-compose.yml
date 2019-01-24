@@ -87,8 +87,7 @@ prom-conf:
       io.rancher.container.hostname_override: container_name
 
 prom-app-conf:
-    tty: true
-    net: none
+    restart: always
     image: registry.sensetime.com/sre/prom-app-conf:0.1
     labels:
       io.rancher.container.hostname_override: container_name
