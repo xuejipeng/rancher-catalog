@@ -14,6 +14,12 @@ for i in range(0, len(config['scrape_configs'])-1):
         config['scrape_configs'][i]['metrics_path'] = os.environ['BASIC_PATH'] + "/metrics"
         #config['scrape_configs'][i]['metrics_path'] = os.environ['HOME'] + "/metrics"
 
+if "true" == os.environ['CUSTOM_ALERTS']:
+    config['rule_files'].append("app.yml")
+else:
+    if "app.yml" in config['rule_files']:
+        config['rule_files'].remove("app.yml")
+
 if "true" == os.environ['ES_EXIST']:
     config['rule_files'].append("elasticsearch.yml")
     es_rule = yaml.load(open('/etc/prom-conf/elasticsearch.yml'))

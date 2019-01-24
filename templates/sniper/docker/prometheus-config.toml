@@ -1,6 +1,0 @@
-[template]
-src = "app.yml.tmpl"
-dest = "/etc/prom-conf/app.yml"
-keys = [
-    "/self/service/metadata/prometheus/config",
-]

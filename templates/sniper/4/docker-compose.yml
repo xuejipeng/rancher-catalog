@@ -71,7 +71,7 @@ blackbox-exporter:
 
 prom-conf:
     tty: true
-    image: registry.sensetime.com/sre/prom-conf:db-port
+    image: registry.sensetime.com/sre/prom-conf:db-port-v1
     volumes:
       - /etc/prom-conf/
     net: none
@@ -88,8 +88,6 @@ prom-conf:
 
 prom-app-conf:
     restart: always
-    volumes:
-       - /etc/prom-app-conf/
     volumes_from:
        - prom-conf
     image: registry.sensetime.com/sre/prom-app-conf:0.1
