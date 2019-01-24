@@ -160,7 +160,7 @@
     required: false
     type: "string"
 
-  - variable: "app-yaml"
+  - variable: "app_yaml"
     label: "prom app alert yaml"
     description: "prometheus alert rules for app"
     required: false
@@ -180,7 +180,7 @@ prometheus:
   metadata:
     prometheus:
       conf:
-        app: ${app-yaml}
+        app: ${app_yaml}
 
 prometheus-rancher-exporter:
   scale: 1
